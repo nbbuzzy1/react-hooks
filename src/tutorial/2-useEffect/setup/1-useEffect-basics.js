@@ -3,7 +3,21 @@ import React, { useState, useEffect } from 'react';
 // cleanup function
 // second parameter
 const UseEffectBasics = () => {
-  return <h2>useEffect Basics</h2>;
+	const [value, setValue] = useState(0)
+
+	useEffect(() => {
+		console.log('call use effect')
+		if (value > 1) {
+			console.log(value);
+		}
+	}, [value])
+	console.log('render component')
+	return (
+		<>
+			<h1>{value}</h1>
+			<button onClick={() => setValue(value + 1)}>Increase</button>
+		</>
+	);
 };
 
 export default UseEffectBasics;
